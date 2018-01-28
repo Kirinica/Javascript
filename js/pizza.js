@@ -28,7 +28,7 @@ function getReceipt() {
 
 function getCheese() {
 	
-	
+	var text1 = "<h3>You Ordered:</h3>";
 	var runningTotal = 0;
 	var cheeseTotal = 0;
 	var cheeseArray = document.getElementsByClassName("cheese");
@@ -142,11 +142,11 @@ function getVegetables(runningTotal, text1) {
 
 function getCrust() {
 	
-	
+	var text1 = "<h3>You Ordered:</h3>";
 	var runningTotal = 0;
 	var crustTotal = 0;
 	var crustArray = document.getElementsByClassName("crust");
-	for (var i = 0; i < ccrustArray.length; i++) {
+	for (var i = 0; i < crustArray.length; i++) {
 		if (crustArray[i].checked) {
 			var selectedCrust = crustArray[i].value;
 			text1 = text1+selectedCrust+"<br>";
@@ -164,7 +164,7 @@ function getCrust() {
 		crustTotal = 0;
 	}
 	runningTotal = crustTotal;
-	console.log(selectedCrust+" = $"+cheeseTotal+".00");
+	console.log(selectedCrust+" = $"+crustTotal+".00");
 	console.log("crust text1: "+text1);
 	console.log("subtotal: $"+runningTotal+".00");
 }
