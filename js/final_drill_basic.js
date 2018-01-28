@@ -1,16 +1,5 @@
-// Get the pizza size price and add it to the running Total
-// then pass that running total to the next function so 
-// the next function will add a particular total to the running total and so on...
-//
-// Keep doing this until you get all items added to the running total.
-//
-// Just remember that the syntax will be text1 = text1 + something + "<br>";
-// So you take the orginal value and concetenate to something new and end it with
-// an HTML line break so our code will write the next thing one line below instead
-// of overwriting the previous print out.
 function getReceipt() {
-	// This initializes our string so it can get passed from  
-	// function to function, growing line by line into a full receipt
+
 	var text1 = "<h3>You Ordered:</h3>";
 	var runningTotal = 0;
 	var sizeTotal = 0;
@@ -34,16 +23,11 @@ function getReceipt() {
 	console.log(selectedSize+" = $"+sizeTotal+".00");
 	console.log("size text1: "+text1);
 	console.log("subtotal: $"+runningTotal+".00");
-	getMeat(runningTotal,text1); // All three of these variables will be passed on to each function
-};	
+	getMeat(runningTotal,text1); 
+}	
 
-// With both the meat and veggie functions each item in the array will be
-// 1 dollar but the first is going to be free so we can count the total
-// of items in their array and subtract 1 to get the total item cost
-//
-// Now we can add the item cost to our running total to get the new
-// running total and then pass this new running total to the next function
-// Just keep up this process until we've added all items to the running total
+
+
 function getMeat(runningTotal,text1) {
 	var meatTotal = 0;
 	var selectedMeat = [];
@@ -55,12 +39,31 @@ function getMeat(runningTotal,text1) {
 			text1 = text1+meatArray[j].value+"<br>";
 		}
 	}
+  
+  
+  // My work
+			if (selectedMeat === "Pepperoni") {
+		meatTotal = 1;
+	} else if (selectedMeat === "Sausage") {
+		meatTotal = 1;
+	} else if (selectedMeat === "Canadian Bacon") {
+		meatTotal = 1;
+	} else if (selectedMeat === "Ground Beef") {
+		meatTotal = 1;
+	} else if (selectedMeat === "Anchovy") {
+		meatTotal = 1;
+	} else if (selectedMeat === "Chicken") {
+		meatTotal = 1;
+	}
 	var meatCount = selectedMeat.length;
 	if (meatCount > 1) {
 		meatTotal = (meatCount - 1);
 	} else {
 		meatTotal = 0;
 	}
+// My work  
+
+  
 	runningTotal = (runningTotal + meatTotal);
 	console.log("total selected meat items: "+meatCount);
 	console.log(meatCount+" meat - 1 free meat = "+"$"+meatTotal+".00");
@@ -68,4 +71,51 @@ function getMeat(runningTotal,text1) {
 	console.log("Purchase Total: "+"$"+runningTotal+".00");
 	document.getElementById("showText").innerHTML=text1;
 	document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
-};
+}
+
+
+// My work
+function getVegetables(runningTotal, text1) {
+	var vegetablesTotal = 0;
+	var selectedVegetables = [];
+	var VegetablesArray = document.getElementsByClassName("vegetables");
+	for (var j = 0; j < VegetablesArray.length; j++) {
+		if (VegetablesArray[j].checked) {
+			selectedVegetables.push(VegetablesArray[j].value);
+			console.log("selected vegetables item: ("+VegetablesArray[j].value+")");
+			text1 = text1+VegetablesArray[j].value+"<br>";
+		}
+	}
+			if (selectedVegetables === "Tomatoes") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Onions") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Olives") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Green Peppers") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Mushrooms") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Pineapple") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Spinach") {
+		vegetablesTotal = 1;
+	} else if (selectedVegetables === "Jalapeño") {
+		vegetablesTotal = 1;
+	}
+	var vegetablesCount = selectedVegetables.length;
+	if (vegetablesCount > 1) {
+		vegetablesTotal = (vegetablesCount - 1);
+	} else {
+		vegetablesTotal = 0;
+	}
+	
+	runningTotal = (runningTotal + vegetablesTotal);
+	console.log("total selected vegetables items: "+vegetablesCount);
+	console.log(vegetablesCount+" vegetables - 1 free vegetables = "+"$"+vegetablesTotal+".00");
+	console.log("vegetables text1: "+text1);
+	console.log("Purchase Total: "+"$"+runningTotal+".00");
+	document.getElementById("showText").innerHTML=text1;
+	document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
+}
+//My work
