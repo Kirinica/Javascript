@@ -28,8 +28,7 @@ function getReceipt() {
 
 function getCheese() {
 	
-	var text1 = "<h3>You Ordered:</h3>";
-	var runningTotal = 0;
+  var text1 = "<h3>You Ordered:</h3>";
 	var cheeseTotal = 0;
 	var cheeseArray = document.getElementsByClassName("cheese");
 	for (var i = 0; i < cheeseArray.length; i++) {
@@ -45,7 +44,8 @@ function getCheese() {
 	} else if (selectedCheese === "Extra Cheese") {
 		cheeseTotal = 3;
 	} 
-	runningTotal = cheeseTotal;
+  
+	runningTotal = (runningTotal + cheeseTotal);
 	console.log(selectedCheese+" = $"+cheeseTotal+".00");
 	console.log("cheese text1: "+text1);
 	console.log("subtotal: $"+runningTotal+".00");
@@ -142,8 +142,6 @@ function getVegetables(runningTotal, text1) {
 
 function getCrust() {
 	
-	var text1 = "<h3>You Ordered:</h3>";
-	var runningTotal = 0;
 	var crustTotal = 0;
 	var crustArray = document.getElementsByClassName("crust");
 	for (var i = 0; i < crustArray.length; i++) {
@@ -163,7 +161,7 @@ function getCrust() {
 	}  else if (selectedCrust  === "House Special Crust") {
 		crustTotal = 0;
 	}
-	runningTotal = crustTotal;
+	runningTotal = (runningTotal + crustTotal);
 	console.log(selectedCrust+" = $"+crustTotal+".00");
 	console.log("crust text1: "+text1);
 	console.log("subtotal: $"+runningTotal+".00");
