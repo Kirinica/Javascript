@@ -25,7 +25,7 @@ function getReceipt() {
   getCheese(runningTotal, text1);
 }
 
-function getCheese() {
+function getCheese(runningTotal, text1) {
   var text1 = "<h3>You Ordered:</h3>";
   var cheeseTotal = 0;
   var cheeseArray = document.getElementsByClassName("cheese");
@@ -146,7 +146,7 @@ function getVegetables(runningTotal, text1) {
   getCrust(runningTotal, text1);
 }
 
-function getCrust() {
+function getCrust(runningTotal, text1) {
   var text1 = "<h3>You Ordered:</h3>";
   var crustTotal = 0;
   var crustArray = document.getElementsByClassName("crust");
